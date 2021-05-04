@@ -1,2 +1,4 @@
-# meas_rpi
-Setup a Raspberry Pi for long term measurements
+# install Raspbian
+
+use 
+https://www.raspberrypi.org/software/
