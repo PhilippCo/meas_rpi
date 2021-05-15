@@ -4,10 +4,15 @@
 #
 
 #install kernel headers
-sudo apt-get install raspberrypi-kernel-headers && [ -d /usr/src/linux-headers-$(uname -r) ]
+sudo apt-get -y install raspberrypi-kernel-headers && [ -d /usr/src/linux-headers-$(uname -r) ]
 
 #install build tools
-sudo apt-get install build-essential texinfo texi2html libcwidget-dev tcl8.6-dev tk8.6-dev libncurses5-dev libx11-dev binutils-dev bison flex libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrodos subversion autoconf automake libtool libpython3-dev libpython-dev
+sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-dev tk8.6-dev libncurses5-dev libx11-dev binutils-dev bison flex libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrodos subversion autoconf automake libtool libpython3-dev libpython-dev
+
+
+#install python GPIB before linux-gpib!
+sudo apt-get -y install python3-pip
+pip3 install pyvisa pyvisa-py numpy scipy openpyxl pandas xlrd openpyxl pyserial pyusb
 
 
 #check out linux-gpib
@@ -28,7 +33,7 @@ sudo make install
 
 #Install Agilent 82357a
 cd /usr/local/src/linux-gpib-code/
-sudo apt-get install fxload
+sudo apt-get -y install fxload
 sudo wget http://linux-gpib.sourceforge.net/firmware/gpib_firmware-2008-08-10.tar.gz
 sudo tar xvzf gpib_firmware-2008-08-10.tar.gz
 cd /usr/local/src/linux-gpib-code/gpib_firmware-2008-08-10/agilent_82357a/
@@ -44,8 +49,14 @@ sudo cp /usr/local/src/linux-gpib-code/gpib_firmware-2008-08-10/agilent_82357a/m
 
 sudo cp /usr/local/etc/udev/rules.d/* /etc/udev/rules.d/
 
+#create gpib group
 sudo groupadd gpib
+sudo adduser pi gpib
+
+
+sudo ldconfig && sudo gpib_config
+
 
 
 echo installation done..
-echo please reboot
+echo please reboot (type: sudo reboot)
