@@ -61,6 +61,7 @@ git clone https://github.com/PhilippCo/testgear.git
 cd testgear
 pip3 install -e ./
 
+pyvisa-info
 
 echo "installation done.."
 echo "please reboot (type: sudo reboot)"
