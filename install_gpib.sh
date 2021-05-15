@@ -56,6 +56,10 @@ sudo adduser pi gpib
 
 sudo ldconfig && sudo gpib_config
 
+cd ~repos
+git clone https://github.com/PhilippCo/testgear.git
+cd testgear
+pip3 install -e ./
 
 
 echo installation done..
