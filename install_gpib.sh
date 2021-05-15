@@ -56,11 +56,11 @@ sudo adduser pi gpib
 
 sudo ldconfig && sudo gpib_config
 
-cd ~repos
+cd ~/repos
 git clone https://github.com/PhilippCo/testgear.git
 cd testgear
 pip3 install -e ./
 
 
-echo installation done..
-echo please reboot (type: sudo reboot)
+echo "installation done.."
+echo "please reboot (type: sudo reboot)"
