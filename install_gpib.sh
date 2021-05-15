@@ -53,15 +53,14 @@ sudo cp /usr/local/etc/udev/rules.d/* /etc/udev/rules.d/
 sudo groupadd gpib
 sudo adduser pi gpib
 
-
-sudo ldconfig && sudo gpib_config
+sudo ldconfig
+#sudo gpib_config
 
 cd ~/repos
 git clone https://github.com/PhilippCo/testgear.git
 cd testgear
 pip3 install -e ./
 
-pyvisa-info
 
 echo "installation done.."
 echo "please reboot (type: sudo reboot)"
