@@ -8,15 +8,15 @@ log in via ssh or console
 
   sudo apt update
   
-  sudo apt upgrade
+  sudo apt -y upgrade
 
 
-  sudo apt install git
+  sudo apt -y install git
   
   
-  mkdir ~/repos (if not already done)
+  mkdir ~/repos
   
-  cd ~repos
+  cd ~/repos
   
   git clone https://github.com/PhilippCo/meas_rpi.git
   
