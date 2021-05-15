@@ -20,4 +20,6 @@ log in via ssh or console
   
   git clone https://github.com/PhilippCo/meas_rpi.git
   
+  meas_rpi/install_gpib.sh
+  
   
