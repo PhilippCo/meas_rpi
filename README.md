@@ -16,7 +16,7 @@ The linux-gpib setup is based on MiDis description on the EEVBlog Forum: https:/
 
 ## Update Raspbian and install everything you need
 
-log in via ssh or console
+log in via ssh or console and just copy and paste these two lines one after the other
 
 ```
 sudo apt update && sudo apt -y upgrade && sudo apt -y install git
