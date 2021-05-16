@@ -57,6 +57,8 @@ sudo ldconfig
 sudo gpib_config
 
 #install VXI11 server
+sudo systemctl enable rpcbind
+sudo systemctl start rpcbind
 cd ~/repos
 git clone https://github.com/PhilippCo/python-vxi11-server.git
 sudo cp python-vxi11-server/vxi-bridge.service /lib/systemd/system/
