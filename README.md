@@ -4,7 +4,7 @@ The purpose of this repository is to prepare a Raspberry Pi as a GPIB controller
 
 - linux-gpib
 - PyVISA for Python3
-- Driver for Agilent 82357A
+- Driver for Agilent 82357A (Agilent 82357B)
 - VXI11 Server (poor mans Agilent E5810A GPIB to Ethernet Bridge https://github.com/PhilippCo/python-vxi11-server)
 - Testgear lib (https://github.com/PhilippCo/testgear)
 
