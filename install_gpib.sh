@@ -11,7 +11,7 @@ sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-
 
 
 #install python GPIB before linux-gpib!
-sudo apt-get -y install python3-pip
+sudo apt-get -y install python3-pip libatlas-base-dev
 pip3 install pyvisa pyvisa-py numpy scipy openpyxl pandas xlrd openpyxl pyserial pyusb
 
 
@@ -53,15 +53,14 @@ sudo cp /usr/local/etc/udev/rules.d/* /etc/udev/rules.d/
 sudo groupadd gpib
 sudo adduser pi gpib
 
-
-sudo ldconfig && sudo gpib_config
+sudo ldconfig
+#sudo gpib_config
 
 cd ~/repos
 git clone https://github.com/PhilippCo/testgear.git
 cd testgear
 pip3 install -e ./
 
-pyvisa-info
 
 echo "installation done.."
 echo "please reboot (type: sudo reboot)"
