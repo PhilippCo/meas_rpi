@@ -54,8 +54,19 @@ sudo groupadd gpib
 sudo adduser pi gpib
 
 sudo ldconfig
-#sudo gpib_config
+sudo gpib_config
 
+#install VXI11 server
+cd ~/repos
+git clone https://github.com/PhilippCo/python-vxi11-server.git
+sudo cp python-vxi11-server/vxi-bridge.service /lib/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable vxi-bridge.service
+sudo systemctl start vxi-bridge.service
+sudo systemctl status vxi-bridge.service
+
+
+#install testgear lib
 cd ~/repos
 git clone https://github.com/PhilippCo/testgear.git
 cd testgear
