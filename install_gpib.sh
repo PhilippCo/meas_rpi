@@ -3,6 +3,8 @@
 # All steps based on MiDis description: https://www.eevblog.com/forum/metrology/raspberry-pi23-logging-platform-for-voltnuts/msg2008349/#msg2008349
 #
 
+export DEBIAN_FRONTEND=noninteractive
+
 #install kernel headers
 sudo apt-get -y install raspberrypi-kernel-headers && [ -d /usr/src/linux-headers-$(uname -r) ]
 
@@ -13,6 +15,28 @@ sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-
 #install python GPIB before linux-gpib!
 sudo apt-get -y install python3-pip libatlas-base-dev
 pip3 install pyvisa pyvisa-py numpy scipy openpyxl pandas xlrd openpyxl pyserial pyusb
+
+
+#install Jupyter Lab as a service
+sudo apt-get -y install libffi-dev
+pip3 install setuptools cffi
+#create directory for Jupyter Notebooks
+mkdir ~/notebooks
+pip3 install jupyterlab
+sudo cp ~/repos/meas_rpi/jupyter/jupyter.service /etc/systemd/system/
+sudo systemctl enable jupyter.service
+sudo systemctl daemon-reload
+sudo systemctl start jupyter.service
+jupyter notebook --generate-config
+## set passwort later with: jupyter notebook password
+
+
+#install samba to share the home directory
+sudo apt-get -y samba
+sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
+sudo cp ~/repos/meas_rpi/samba/smb.conf /etc/samba/smb.conf
+sudo service smbd restart
+sudo service nmbd restart
 
 
 #check out linux-gpib
