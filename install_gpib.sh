@@ -27,17 +27,19 @@ sudo cp ~/repos/meas_rpi/jupyter/jupyter.service /etc/systemd/system/
 sudo systemctl enable jupyter.service
 sudo systemctl daemon-reload
 sudo systemctl start jupyter.service
-jupyter notebook --generate-config
-
+#jupyter notebook --generate-config
 ## set passwort later with: jupyter notebook password
+ln -s ~/repos/meas_rpi/jupyter/examples ~/notebooks/examples
 
 
 #install samba to share the home directory
-sudo apt-get -y install samba
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install samba
 sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
 sudo cp ~/repos/meas_rpi/samba/smb.conf /etc/samba/smb.conf
 sudo service smbd restart
 sudo service nmbd restart
+
+(echo "1234"; echo "1234") | sudo smbpasswd -a pi
 
 
 #check out linux-gpib
