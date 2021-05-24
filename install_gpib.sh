@@ -19,7 +19,7 @@ pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd openpyxl pyser
 
 #install Jupyter Lab as a service
 sudo apt-get -y install libffi-dev
-pip3 install setuptools cffi
+pip3 install -U setuptools cffi pygments
 #create directory for Jupyter Notebooks
 mkdir ~/notebooks
 pip3 install jupyterlab
@@ -28,11 +28,12 @@ sudo systemctl enable jupyter.service
 sudo systemctl daemon-reload
 sudo systemctl start jupyter.service
 jupyter notebook --generate-config
+
 ## set passwort later with: jupyter notebook password
 
 
 #install samba to share the home directory
-sudo apt-get -y samba
+sudo apt-get -y install samba
 sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
 sudo cp ~/repos/meas_rpi/samba/smb.conf /etc/samba/smb.conf
 sudo service smbd restart
