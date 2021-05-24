@@ -14,7 +14,7 @@ sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-
 
 #install python GPIB before linux-gpib!
 sudo apt-get -y install python3-pip libatlas-base-dev
-pip3 install pyvisa pyvisa-py numpy scipy openpyxl pandas xlrd openpyxl pyserial pyusb
+pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd openpyxl pyserial pyusb
 
 
 #install Jupyter Lab as a service
