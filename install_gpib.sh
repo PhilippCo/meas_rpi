@@ -43,7 +43,7 @@ sudo service nmbd restart
 
 
 #check out linux-gpib
-sudo svn checkout svn://svn.code.sf.net/p/linux-gpib/code/trunk /usr/local/src/linux-gpib-code
+sudo svn checkout http://svn.code.sf.net/p/linux-gpib/code/trunk /usr/local/src/linux-gpib-code
 
 #install User Module
 cd /usr/local/src/linux-gpib-code/linux-gpib-kernel/
