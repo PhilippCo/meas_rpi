@@ -1,6 +1,6 @@
 # Setup GPIB on Raspberry Pi
 #
-# All steps based on MiDis description: https://www.eevblog.com/forum/metrology/raspberry-pi23-logging-platform-for-voltnuts/msg2008349/#msg2008349
+# steps are based on MiDis description: https://www.eevblog.com/forum/metrology/raspberry-pi23-logging-platform-for-voltnuts/msg2008349/#msg2008349
 #
 
 export DEBIAN_FRONTEND=noninteractive
@@ -47,12 +47,12 @@ ln -s ~/repos/meas_rpi/jupyter/examples ~/notebooks/examples
 #check out linux-gpib
 sudo svn checkout http://svn.code.sf.net/p/linux-gpib/code/trunk /usr/local/src/linux-gpib-code
 
-#install User Module
+#install Kernel Module
 cd /usr/local/src/linux-gpib-code/linux-gpib-kernel/
 sudo make
 sudo make install
 
-#install Kernel Module
+#install User Module
 cd /usr/local/src/linux-gpib-code/linux-gpib-user/
 sudo ./bootstrap
 sudo ./configure
