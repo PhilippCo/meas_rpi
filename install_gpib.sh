@@ -34,14 +34,14 @@ sudo systemctl start jupyter.service
 ln -s ~/repos/meas_rpi/jupyter/examples ~/notebooks/examples
 
 
-#install samba to share the home directory
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install samba
-sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
-sudo cp ~/repos/meas_rpi/samba/smb.conf /etc/samba/smb.conf
-sudo service smbd restart
-sudo service nmbd restart
+# #install samba to share the home directory
+# sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install samba
+# sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
+# sudo cp ~/repos/meas_rpi/samba/smb.conf /etc/samba/smb.conf
+# sudo service smbd restart
+# sudo service nmbd restart
 
-(echo "1234"; echo "1234") | sudo smbpasswd -a pi
+# (echo "1234"; echo "1234") | sudo smbpasswd -a pi
 
 
 #check out linux-gpib
@@ -102,6 +102,18 @@ cd ~/repos
 git clone https://github.com/PhilippCo/testgear.git
 cd testgear
 pip3 install -e ./
+
+
+# install matplotlib
+pip3 install -U matplotlib ipympl
+sudo apt-get -y install libtiff5 libopenjp2-7
+cd ~
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get -y install nodejs
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install jupyter-matplotlib
+jupyter nbextension enable --py widgetsnbextension
 
 
 echo "installation done.."
