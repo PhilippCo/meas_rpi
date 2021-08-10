@@ -23,7 +23,9 @@ log in via ssh or console and just copy and paste these lines one after the othe
 
 ```
 sudo apt update && sudo apt -y upgrade && sudo apt-get -y install --reinstall raspberrypi-bootloader raspberrypi-kernel && sudo apt-get -y install raspberrypi-kernel-headers git
+```
 
+```
 sudo reboot
 ```
 
