@@ -19,10 +19,16 @@ The linux-gpib setup is based on MiDis description on the EEVBlog Forum: https:/
 
 ## Update Raspbian and install everything you need
 
-log in via ssh or console and just copy and paste these two lines one after the other
+log in via ssh or console and just copy and paste these lines one after the other
 
 ```
-sudo apt update && sudo apt -y upgrade && sudo apt -y install git
+sudo apt update && sudo apt -y upgrade && sudo apt-get -y install --reinstall raspberrypi-bootloader raspberrypi-kernel && sudo apt-get -y install raspberrypi-kernel-headers git
+
+sudo reboot
+```
+
+After reboot log in again and paste this:
+```
 mkdir ~/repos && cd ~/repos && git clone https://github.com/PhilippCo/meas_rpi.git && meas_rpi/install_gpib.sh
 ```  
 
