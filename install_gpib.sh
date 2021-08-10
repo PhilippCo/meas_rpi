@@ -123,9 +123,9 @@ cd ~
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt-get -y install nodejs
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
-jupyter labextension install jupyter-matplotlib
-jupyter nbextension enable --py widgetsnbextension
+/home/pi/.local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
+/home/pi/.local/bin/jupyter labextension install jupyter-matplotlib
+/home/pi/.local/bin/jupyter nbextension enable --py widgetsnbextension
 
 
 echo "installation done.."
