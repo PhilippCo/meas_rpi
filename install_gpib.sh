@@ -20,6 +20,8 @@ sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrod
 #install some common tools
 sudo apt-get -y install tmux mc
 
+exit 0
+
 #install python GPIB before linux-gpib!
 sudo apt-get -y install python3-pip libatlas-base-dev
 pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd openpyxl pyserial pyusb
