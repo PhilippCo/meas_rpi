@@ -8,13 +8,14 @@ export DEBIAN_FRONTEND=noninteractive
 #install kernel headers
 #sudo apt-get -y install raspberrypi-kernel-headers && [ -d /usr/src/linux-headers-$(uname -r) ]
 #that fixes the gpib compile problem
-sudo apt-get install --reinstall raspberrypi-bootloader raspberrypi-kernel
-sudo apt-get install raspberrypi-kernel-headers
+#sudo apt-get -y install --reinstall raspberrypi-bootloader raspberrypi-kernel
+#sudo apt-get -y install raspberrypi-kernel-headers
 
 sudo apt-get -y autoremove
 
 #install build tools
-sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-dev tk8.6-dev libncurses5-dev libx11-dev binutils-dev bison flex libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrodos subversion autoconf automake libtool libpython3-dev libpython-dev
+sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-dev tk8.6-dev libncurses5-dev libx11-dev binutils-dev bison flex
+sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrodos subversion autoconf automake libtool libpython3-dev libpython-dev
 
 #install some common tools
 sudo apt-get -y install tmux mc
@@ -26,7 +27,7 @@ pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd openpyxl pyser
 
 #install Jupyter Lab as a service
 sudo apt-get -y install libffi-dev
-pip3 install -U setuptools cffi pygments
+pip3 install -U setuptools cffi pygments testresources
 
 #create directory for Jupyter Notebooks
 mkdir ~/notebooks
