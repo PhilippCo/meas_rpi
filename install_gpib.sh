@@ -20,7 +20,7 @@ sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrod
 #install some common tools
 sudo apt-get -y install tmux mc
 
-exit 0
+#exit 0
 
 #install python GPIB before linux-gpib!
 sudo apt-get -y install python3-pip libatlas-base-dev
@@ -123,9 +123,9 @@ cd ~
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt-get -y install nodejs
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
-jupyter labextension install jupyter-matplotlib
-jupyter nbextension enable --py widgetsnbextension
+/home/pi/.local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
+/home/pi/.local/bin/jupyter labextension install jupyter-matplotlib
+/home/pi/.local/bin/jupyter nbextension enable --py widgetsnbextension
 
 
 echo "installation done.."
