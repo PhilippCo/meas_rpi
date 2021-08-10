@@ -6,7 +6,11 @@
 export DEBIAN_FRONTEND=noninteractive
 
 #install kernel headers
-sudo apt-get -y install raspberrypi-kernel-headers && [ -d /usr/src/linux-headers-$(uname -r) ]
+#sudo apt-get -y install raspberrypi-kernel-headers && [ -d /usr/src/linux-headers-$(uname -r) ]
+#that fixes the gpib compile problem
+sudo apt-get install --reinstall raspberrypi-bootloader raspberrypi-kernel
+sudo apt-get install raspberrypi-kernel-headers
+
 sudo apt-get -y autoremove
 
 #install build tools
@@ -26,6 +30,7 @@ pip3 install -U setuptools cffi pygments
 
 #create directory for Jupyter Notebooks
 mkdir ~/notebooks
+pip3 install 'importlib-metadata<4'
 pip3 install jupyterlab
 sudo cp ~/repos/meas_rpi/jupyter/jupyter.service /etc/systemd/system/
 sudo systemctl enable jupyter.service
@@ -57,7 +62,7 @@ sudo make install
 
 #install User Module
 cd /usr/local/src/linux-gpib-code/linux-gpib-user/
-sudo make clean
+#sudo make clean
 sudo ./bootstrap
 sudo ./configure
 sudo make
