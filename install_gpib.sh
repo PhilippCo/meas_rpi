@@ -20,7 +20,12 @@ sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrod
 #install some common tools
 sudo apt-get -y install tmux mc
 
-#exit 0
+#before we go on: check if subversion is really installed. That was sometimes a problem in the past
+if ! command -v subversion &> /dev/null
+then
+    echo "subversion failed to install!"
+    exit
+fi
 
 #install python GPIB before linux-gpib!
 sudo apt-get -y install python3-pip libatlas-base-dev
