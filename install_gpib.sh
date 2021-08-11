@@ -21,7 +21,7 @@ sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrod
 sudo apt-get -y install tmux mc
 
 #before we go on: check if subversion is really installed. That was sometimes a problem in the past
-if ! command -v subversion &> /dev/null
+if ! command -v svn &> /dev/null
 then
     echo "subversion failed to install!"
     exit
