@@ -132,6 +132,8 @@ sudo apt-get -y install nodejs
 /home/pi/.local/bin/jupyter labextension install jupyter-matplotlib
 /home/pi/.local/bin/jupyter nbextension enable --py widgetsnbextension
 
+echo "generate SSH key"
+ssh-keygen -b 4096 -t rsa -f /home/pi/.ssh/id_rsa -q -N ""
 
 echo "installation done.."
 echo "please reboot (type: sudo reboot)"
