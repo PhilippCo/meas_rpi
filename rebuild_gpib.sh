@@ -11,3 +11,7 @@ sudo ./bootstrap
 sudo ./configure
 sudo make
 sudo make install
+
+echo ----------------------
+echo - DONE please reboot -
+echo ----------------------
