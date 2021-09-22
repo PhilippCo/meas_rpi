@@ -28,7 +28,7 @@ then
 fi
 
 #install python GPIB before linux-gpib!
-sudo apt-get -y install python3-pip libatlas-base-dev
+sudo apt-get -y install python3-pip libatlas-base-dev python3-smbus
 pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd openpyxl pyserial pyusb
 
 
