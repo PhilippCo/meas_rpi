@@ -20,6 +20,9 @@ sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrod
 #install some common tools
 sudo apt-get -y install tmux mc
 
+#install tools to export LaTex & PDF from Jupyter
+sudo apt-get -y install pandoc texlive-xetex
+
 #before we go on: check if subversion is really installed. That was sometimes a problem in the past
 if ! command -v svn &> /dev/null
 then
