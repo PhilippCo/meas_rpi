@@ -128,6 +128,14 @@ sudo apt-get -y install nodejs
 /home/pi/.local/bin/jupyter labextension install jupyter-matplotlib
 /home/pi/.local/bin/jupyter nbextension enable --py widgetsnbextension
 
+
+#create IPython config
+ipython profile create
+
+#switch Jedi auto-completion off (very slow)
+echo 'c.Completer.use_jedi = False' >>  /home/pi/.ipython/profile_default/ipython_config.py
+
+
 echo "generate SSH key"
 ssh-keygen -b 4096 -t rsa -f /home/pi/.ssh/id_rsa -q -N ""
 
