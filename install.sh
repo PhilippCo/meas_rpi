@@ -15,7 +15,8 @@ sudo apt-get -y autoremove
 
 #install build tools
 sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-dev tk8.6-dev libncurses5-dev libx11-dev binutils-dev bison flex
-sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrodos subversion autoconf automake libtool libpython3-dev libpython-dev
+sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrodos subversion autoconf automake libtool libpython3-dev
+#libpython-dev
 
 #install some common tools
 sudo apt-get -y install tmux mc
