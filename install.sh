@@ -150,7 +150,7 @@ sudo apt-get -y install nodejs
 
 
 #create IPython config
-ipython profile create
+/home/pi/.local/bin/ipython profile create
 
 #switch Jedi auto-completion off (very slow)
 echo 'c.Completer.use_jedi = False' >>  /home/pi/.ipython/profile_default/ipython_config.py
