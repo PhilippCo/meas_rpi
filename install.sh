@@ -5,24 +5,39 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-#install kernel headers
-#sudo apt-get -y install raspberrypi-kernel-headers && [ -d /usr/src/linux-headers-$(uname -r) ]
-#that fixes the gpib compile problem
-#sudo apt-get -y install --reinstall raspberrypi-bootloader raspberrypi-kernel
-#sudo apt-get -y install raspberrypi-kernel-headers
-
 sudo apt-get -y autoremove
 
 #install build tools
-sudo apt-get -y install build-essential texinfo texi2html libcwidget-dev tcl8.6-dev tk8.6-dev libncurses5-dev libx11-dev binutils-dev bison flex
-sudo apt-get -y install libusb-1.0-0 libusb-dev libmpfr-dev libexpat1-dev tofrodos subversion autoconf automake libtool libpython3-dev
-#libpython-dev
+sudo apt-get -y install subversion
+sudo apt-get -y install build-essential
+sudo apt-get -y install texinfo 
+sudo apt-get -y install texi2html 
+sudo apt-get -y install libcwidget-dev 
+sudo apt-get -y install tcl8.6-dev 
+sudo apt-get -y install tk8.6-dev 
+sudo apt-get -y install libncurses5-dev 
+sudo apt-get -y install libx11-dev 
+sudo apt-get -y install binutils-dev 
+sudo apt-get -y install bison 
+sudo apt-get -y install flex
+sudo apt-get -y install libusb-1.0-0 
+sudo apt-get -y install libusb-dev 
+sudo apt-get -y install libmpfr-dev 
+sudo apt-get -y install libexpat1-dev 
+sudo apt-get -y install tofrodos 
+sudo apt-get -y install autoconf 
+sudo apt-get -y install automake 
+sudo apt-get -y install libtool 
+sudo apt-get -y install libpython3-dev
+#sudo apt-get -y install libpython-dev
 
 #install some common tools
-sudo apt-get -y install tmux mc
+sudo apt-get -y install tmux
+sudo apt-get -y install mc
 
 #install tools to export LaTex & PDF from Jupyter
-sudo apt-get -y install pandoc texlive-xetex
+sudo apt-get -y install pandoc 
+sudo apt-get -y install texlive-xetex
 
 #before we go on: check if subversion is really installed. That was sometimes a problem in the past
 if ! command -v svn &> /dev/null
@@ -32,7 +47,10 @@ then
 fi
 
 #install python GPIB before linux-gpib!
-sudo apt-get -y install python3-pip libatlas-base-dev python3-smbus
+sudo apt-get -y install python3-pip
+sudo apt-get -y install libatlas-base-dev
+sudo apt-get -y install python3-smbus
+
 pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd openpyxl pyserial pyusb
 
 
@@ -120,7 +138,8 @@ pip3 install -e ./
 
 # install matplotlib
 pip3 install -U matplotlib ipympl
-sudo apt-get -y install libtiff5 libopenjp2-7
+sudo apt-get -y install libtiff5
+sudo apt-get -y install libopenjp2-7
 cd ~
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
