@@ -159,5 +159,11 @@ echo 'c.Completer.use_jedi = False' >>  /home/pi/.ipython/profile_default/ipytho
 echo "generate SSH key"
 ssh-keygen -b 4096 -t rsa -f /home/pi/.ssh/id_rsa -q -N ""
 
+
+#add Cron Jobs
+mkdir ~/notebooks/cron
+mkdir ~/notebooks/cron/nightly
+(crontab -l 2>/dev/null; echo "* 2 * * * ~/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
+
 echo "installation done.."
 echo "please reboot (type: sudo reboot)"
