@@ -163,7 +163,9 @@ ssh-keygen -b 4096 -t rsa -f /home/pi/.ssh/id_rsa -q -N ""
 #add Cron Jobs
 mkdir ~/notebooks/cron
 mkdir ~/notebooks/cron/nightly
-(crontab -l 2>/dev/null; echo "* 2 * * * ~/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
+mkdir ~/notebooks/cron/hourly
+(crontab -l 2>/dev/null; echo "* 2 * * * /home/pi/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
+(crontab -l 2>/dev/null; echo "0 * * * * /home/pi/repos/meas_rpi/scripts/cron_hourly.sh") | crontab -
 
 echo "installation done.."
 echo "please reboot (type: sudo reboot)"
