@@ -31,6 +31,10 @@ sudo apt-get -y install libtool
 sudo apt-get -y install libpython3-dev
 #sudo apt-get -y install libpython-dev
 
+#Redis
+sudo apt-get -y install redis-server
+pip3 install -U redis
+
 #install some common tools
 sudo apt-get -y install tmux
 sudo apt-get -y install mc
