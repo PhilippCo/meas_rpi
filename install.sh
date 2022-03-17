@@ -31,6 +31,10 @@ sudo apt-get -y install libtool
 sudo apt-get -y install libpython3-dev
 #sudo apt-get -y install libpython-dev
 
+#Redis
+sudo apt-get -y install redis-server
+pip3 install -U redis
+
 #install some common tools
 sudo apt-get -y install tmux
 sudo apt-get -y install mc
@@ -164,8 +168,13 @@ ssh-keygen -b 4096 -t rsa -f /home/pi/.ssh/id_rsa -q -N ""
 mkdir ~/notebooks/cron
 mkdir ~/notebooks/cron/nightly
 mkdir ~/notebooks/cron/hourly
+<<<<<<< HEAD
+chmod 777 /home/pi/repos/meas_rpi/scripts/cron_nightly.sh
+chmod 777 /home/pi/repos/meas_rpi/scripts/cron_hourly.sh
 (crontab -l 2>/dev/null; echo "* 2 * * * /home/pi/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
+=======
 (crontab -l 2>/dev/null; echo "30 2 * * * /home/pi/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
+>>>>>>> 297990b9622f2dea8e66b9ce2b080eb1035901c6
 (crontab -l 2>/dev/null; echo "0 * * * * /home/pi/repos/meas_rpi/scripts/cron_hourly.sh") | crontab -
 
 echo "installation done.."
