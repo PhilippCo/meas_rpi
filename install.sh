@@ -164,6 +164,8 @@ ssh-keygen -b 4096 -t rsa -f /home/pi/.ssh/id_rsa -q -N ""
 mkdir ~/notebooks/cron
 mkdir ~/notebooks/cron/nightly
 mkdir ~/notebooks/cron/hourly
+chmod 777 /home/pi/repos/meas_rpi/scripts/cron_nightly.sh
+chmod 777 /home/pi/repos/meas_rpi/scripts/cron_hourly.sh
 (crontab -l 2>/dev/null; echo "* 2 * * * /home/pi/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
 (crontab -l 2>/dev/null; echo "0 * * * * /home/pi/repos/meas_rpi/scripts/cron_hourly.sh") | crontab -
 
