@@ -118,6 +118,9 @@ sudo cp /usr/local/etc/udev/rules.d/* /etc/udev/rules.d/
 sudo groupadd gpib
 sudo adduser pi gpib
 
+#allow access to USB devices
+sudo echo 'SUBSYSTEM=="usb", MODE="0666", GROUP="gpib"' >> /etc/udev/rules.d/99-com.rules
+
 sudo ldconfig
 sudo gpib_config
 
