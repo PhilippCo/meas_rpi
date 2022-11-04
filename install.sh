@@ -55,6 +55,9 @@ sudo apt-get -y install python3-pip
 sudo apt-get -y install libatlas-base-dev
 sudo apt-get -y install python3-smbus
 
+sudo apt-get -y install libopenblas-dev liblapack-dev
+sudo apt-get -y install gfortran
+
 pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd openpyxl pyserial pyusb
 
 
