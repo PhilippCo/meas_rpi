@@ -17,6 +17,8 @@ The linux-gpib setup is based on MiDis description on the EEVBlog Forum: https:/
 
 [Install Raspberry Pi Image](install_image.md)
 
+Since some time the default user isn't 'pi' anymore. But a lot of scripts rely on paths for this user. Therefore, it is absolutely neccessary to use the username pi!
+
 ## Update Raspbian and install everything you need
 
 log in via ssh or console and just copy and paste these lines one after the other
