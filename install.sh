@@ -151,7 +151,7 @@ pip3 install -U matplotlib ipympl
 sudo apt-get -y install libtiff5
 sudo apt-get -y install libopenjp2-7
 cd ~
-curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt-get -y install nodejs
 /home/pi/.local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
