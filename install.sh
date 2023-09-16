@@ -40,8 +40,8 @@ sudo apt-get -y install tmux
 sudo apt-get -y install mc
 
 #install tools to export LaTex & PDF from Jupyter
-sudo apt-get -y install pandoc 
-sudo apt-get -y install texlive-xetex
+#sudo apt-get -y install pandoc 
+#sudo apt-get -y install texlive-xetex
 
 #before we go on: check if subversion is really installed. That was sometimes a problem in the past
 if ! command -v svn &> /dev/null
