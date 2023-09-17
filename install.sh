@@ -29,7 +29,6 @@ sudo apt-get -y install autoconf
 sudo apt-get -y install automake 
 sudo apt-get -y install libtool 
 sudo apt-get -y install libpython3-dev
-#sudo apt-get -y install libpython-dev
 
 #Redis
 sudo apt-get -y install redis-server
@@ -39,9 +38,6 @@ pip3 install -U redis
 sudo apt-get -y install tmux
 sudo apt-get -y install mc
 
-#install tools to export LaTex & PDF from Jupyter
-#sudo apt-get -y install pandoc 
-#sudo apt-get -y install texlive-xetex
 
 #before we go on: check if subversion is really installed. That was sometimes a problem in the past
 if ! command -v svn &> /dev/null
@@ -67,8 +63,7 @@ pip3 install -U setuptools cffi pygments testresources
 
 #create directory for Jupyter Notebooks
 mkdir ~/notebooks
-pip3 install 'importlib-metadata<4'
-pip3 install jupyterlab
+pip3 install jupyterlab matplotlib ipympl
 sudo cp ~/repos/meas_rpi/jupyter/jupyter.service /etc/systemd/system/
 sudo systemctl enable jupyter.service
 sudo systemctl daemon-reload
@@ -146,27 +141,32 @@ cd testgear
 pip3 install -e ./
 
 
-# install matplotlib
-pip3 install -U matplotlib ipympl
-sudo apt-get -y install libtiff5
-sudo apt-get -y install libopenjp2-7
-cd ~
-curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get -y install nodejs
-/home/pi/.local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+# sudo apt-get -y install libtiff5
+# sudo apt-get -y install libopenjp2-7
+
+# # install node.js 18
+# sudo apt-get install -y ca-certificates curl gnupg
+# sudo mkdir -p /etc/apt/keyrings
+# curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+# NODE_MAJOR=18
+# echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+# sudo apt-get -y install nodejs
+
+
+# /home/pi/.local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 #/home/pi/.local/bin/jupyter labextension install jupyter-matplotlib
-pip3 install ipympl
 
-/home/pi/.local/bin/jupyter nbextension enable --py widgetsnbextension
+
+# /home/pi/.local/bin/jupyter nbextension enable --py widgetsnbextension
 
 
 #create IPython config
-/home/pi/.local/bin/ipython profile create
+# /home/pi/.local/bin/ipython profile create
 
 #switch Jedi auto-completion off (very slow)
-echo 'c.Completer.use_jedi = False' >>  /home/pi/.ipython/profile_default/ipython_config.py
+# echo 'c.Completer.use_jedi = False' >>  /home/pi/.ipython/profile_default/ipython_config.py
 
 
 echo "generate SSH key"
