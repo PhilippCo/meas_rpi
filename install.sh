@@ -7,6 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 sudo locale-gen
 export PATH="$HOME/.local/bin:$PATH"
+echo LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 | sudo tee /etc/environment
 
 sudo apt-get -y autoremove
 
