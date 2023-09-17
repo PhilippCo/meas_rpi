@@ -5,6 +5,9 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
+sudo locale-gen
+export PATH="$HOME/.local/bin:$PATH"
+
 sudo apt-get -y autoremove
 
 #install build tools
@@ -30,10 +33,6 @@ sudo apt-get -y install automake
 sudo apt-get -y install libtool 
 sudo apt-get -y install libpython3-dev
 
-#Redis
-sudo apt-get -y install redis-server
-pip3 install -U redis
-
 #install some common tools
 sudo apt-get -y install tmux
 sudo apt-get -y install mc
@@ -55,6 +54,11 @@ sudo apt-get -y install libopenblas-dev liblapack-dev
 sudo apt-get -y install gfortran
 
 pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd pyserial pyusb
+
+
+#install Redis
+sudo apt-get -y install redis-server
+pip3 install -U redis
 
 
 #install Jupyter Lab as a service
@@ -139,34 +143,6 @@ cd ~/repos
 git clone https://github.com/PhilippCo/testgear.git
 cd testgear
 pip3 install -e ./
-
-
-
-# sudo apt-get -y install libtiff5
-# sudo apt-get -y install libopenjp2-7
-
-# # install node.js 18
-# sudo apt-get install -y ca-certificates curl gnupg
-# sudo mkdir -p /etc/apt/keyrings
-# curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-# NODE_MAJOR=18
-# echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-# sudo apt-get -y install nodejs
-
-
-# /home/pi/.local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
-
-#/home/pi/.local/bin/jupyter labextension install jupyter-matplotlib
-
-
-# /home/pi/.local/bin/jupyter nbextension enable --py widgetsnbextension
-
-
-#create IPython config
-# /home/pi/.local/bin/ipython profile create
-
-#switch Jedi auto-completion off (very slow)
-# echo 'c.Completer.use_jedi = False' >>  /home/pi/.ipython/profile_default/ipython_config.py
 
 
 echo "generate SSH key"
