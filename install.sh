@@ -7,8 +7,8 @@
 sudo apt-get -y autoremove
 
 #install build tools
-sudo apt-get -y install subversion
-#sudo apt-get -y install build-essential
+sudo apt -y install subversion
+sudo apt -y install build-essential
 #sudo apt-get -y install texinfo 
 #sudo apt-get -y install texi2html 
 #sudo apt-get -y install libcwidget-dev 
@@ -17,16 +17,15 @@ sudo apt-get -y install subversion
 #sudo apt-get -y install libncurses5-dev 
 #sudo apt-get -y install libx11-dev 
 #sudo apt-get -y install binutils-dev 
-#sudo apt-get -y install bison 
-#sudo apt-get -y install flex
+sudo apt -y install bison flex
 #sudo apt-get -y install libusb-1.0-0 
 #sudo apt-get -y install libusb-dev 
 #sudo apt-get -y install libmpfr-dev 
 #sudo apt-get -y install libexpat1-dev 
 #sudo apt-get -y install tofrodos 
 #sudo apt-get -y install autoconf 
-#sudo apt-get -y install automake 
-#sudo apt-get -y install libtool 
+sudo apt -y install automake libtool
+
 #sudo apt-get -y install libpython3-dev
 sudo apt -y install libopenblas-dev liblapack-dev
 sudo apt -y install libopenjp2-7
@@ -106,7 +105,7 @@ cd /usr/local/src/linux-gpib-code/
 sudo apt-get -y install fxload
 sudo wget http://linux-gpib.sourceforge.net/firmware/gpib_firmware-2008-08-10.tar.gz
 sudo tar xvzf gpib_firmware-2008-08-10.tar.gz
-cd /usr/local/src/linux-gpib-code/gpib_firmware-2008-08-10/agilent_82357a/
+#cd /usr/local/src/linux-gpib-code/gpib_firmware-2008-08-10/agilent_82357a/
 
 #backup original gpib.conf
 sudo mv /usr/local/etc/gpib.conf /usr/local/etc/gpib.conf.backup
@@ -124,10 +123,12 @@ sudo groupadd gpib
 sudo adduser pi gpib
 
 #allow access to USB devices
-sudo echo 'SUBSYSTEM=="usb", MODE="0666", GROUP="gpib"' >> /etc/udev/rules.d/99-com.rules
+echo 'SUBSYSTEM=="usb", MODE="0666", GROUP="gpib"' | sudo tee -a /etc/udev/rules.d/99-com.rules
 
 sudo ldconfig
 sudo gpib_config
+
+exit
 
 #install VXI11 server
 sudo systemctl enable rpcbind
