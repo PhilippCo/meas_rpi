@@ -3,38 +3,36 @@
 # steps are based on MiDis description: https://www.eevblog.com/forum/metrology/raspberry-pi23-logging-platform-for-voltnuts/msg2008349/#msg2008349
 #
 
-export DEBIAN_FRONTEND=noninteractive
-export PATH="$HOME/.local/bin:$PATH"
-
 
 sudo apt-get -y autoremove
 
 #install build tools
 sudo apt-get -y install subversion
-sudo apt-get -y install build-essential
-sudo apt-get -y install texinfo 
-sudo apt-get -y install texi2html 
-sudo apt-get -y install libcwidget-dev 
-sudo apt-get -y install tcl8.6-dev 
-sudo apt-get -y install tk8.6-dev 
-sudo apt-get -y install libncurses5-dev 
-sudo apt-get -y install libx11-dev 
-sudo apt-get -y install binutils-dev 
-sudo apt-get -y install bison 
-sudo apt-get -y install flex
-sudo apt-get -y install libusb-1.0-0 
-sudo apt-get -y install libusb-dev 
-sudo apt-get -y install libmpfr-dev 
-sudo apt-get -y install libexpat1-dev 
-sudo apt-get -y install tofrodos 
-sudo apt-get -y install autoconf 
-sudo apt-get -y install automake 
-sudo apt-get -y install libtool 
-sudo apt-get -y install libpython3-dev
+#sudo apt-get -y install build-essential
+#sudo apt-get -y install texinfo 
+#sudo apt-get -y install texi2html 
+#sudo apt-get -y install libcwidget-dev 
+#sudo apt-get -y install tcl8.6-dev 
+#sudo apt-get -y install tk8.6-dev 
+#sudo apt-get -y install libncurses5-dev 
+#sudo apt-get -y install libx11-dev 
+#sudo apt-get -y install binutils-dev 
+#sudo apt-get -y install bison 
+#sudo apt-get -y install flex
+#sudo apt-get -y install libusb-1.0-0 
+#sudo apt-get -y install libusb-dev 
+#sudo apt-get -y install libmpfr-dev 
+#sudo apt-get -y install libexpat1-dev 
+#sudo apt-get -y install tofrodos 
+#sudo apt-get -y install autoconf 
+#sudo apt-get -y install automake 
+#sudo apt-get -y install libtool 
+#sudo apt-get -y install libpython3-dev
+sudo apt -y install libopenblas-dev liblapack-dev
+sudo apt -y install libopenjp2-7
 
 #install some common tools
-sudo apt-get -y install tmux
-sudo apt-get -y install mc
+sudo apt-get -y install tmux mc
 
 
 #before we go on: check if subversion is really installed. That was sometimes a problem in the past
@@ -45,28 +43,34 @@ then
 fi
 
 #install python GPIB before linux-gpib!
-sudo apt-get -y install python3-pip
-sudo apt-get -y install libatlas-base-dev
+sudo apt -y install python3 python3-pip python3-venv nodejs
 sudo apt-get -y install python3-smbus
 
-sudo apt-get -y install libopenblas-dev liblapack-dev
-sudo apt-get -y install gfortran
+cd ~
+python3 -m venv venv
+~/venv/bin/python3 -m pip install jupyter
+~/venv/bin/python3 -m pip install pyvisa pyvisa-py scipy openpyxl pandas xlrd pyserial pyusb
+~/venv/bin/python3 -m pip install matplotlib ipympl
 
-pip3 install -U numpy pyvisa pyvisa-py scipy openpyxl pandas xlrd pyserial pyusb
+
+#sudo apt-get -y install libatlas-base-dev
+
+
+
+#sudo apt-get -y install gfortran
 
 
 #install Redis
 sudo apt-get -y install redis-server
-pip3 install -U redis
+~/venv/bin/python3 -m pip install redis
 
 
 #install Jupyter Lab as a service
-sudo apt-get -y install libffi-dev
-pip3 install -U setuptools cffi pygments testresources
+#sudo apt-get -y install libffi-dev
+#pip3 install -U setuptools cffi pygments testresources
 
 #create directory for Jupyter Notebooks
 mkdir ~/notebooks
-pip3 install jupyterlab matplotlib ipympl
 sudo cp ~/repos/meas_rpi/jupyter/jupyter.service /etc/systemd/system/
 sudo systemctl enable jupyter.service
 sudo systemctl daemon-reload
