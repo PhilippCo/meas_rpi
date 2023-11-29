@@ -3,7 +3,7 @@ Description=Jupyter Lab
 [Service]
 Type=simple
 PIDFile=/run/jupyter.pid
-ExecStart=/bin/bash -c "/home/pi/.local/bin/jupyter-lab --ip="0.0.0.0" --no-browser --notebook-dir=/home/pi/notebooks --NotebookApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$QEKtYZwdlvPF/FJkJx6xyg$+X7sj7NnWq/wlu+7VZDB7Q'"
+ExecStart=/bin/bash -c "~/venv/bin/jupyter lab --ip="0.0.0.0" --no-browser --notebook-dir=/home/pi/notebooks --NotebookApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$QEKtYZwdlvPF/FJkJx6xyg$+X7sj7NnWq/wlu+7VZDB7Q'"
 User=pi
 Group=pi
 WorkingDirectory=/home/pi/notebooks
