@@ -51,23 +51,12 @@ python3 -m venv venv
 ~/venv/bin/python3 -m pip install pyvisa pyvisa-py scipy openpyxl pandas xlrd pyserial pyusb
 ~/venv/bin/python3 -m pip install matplotlib ipympl
 
-
-#sudo apt-get -y install libatlas-base-dev
-
-
-
-#sudo apt-get -y install gfortran
-
-
 #install Redis
 sudo apt-get -y install redis-server
 ~/venv/bin/python3 -m pip install redis
 
 
 #install Jupyter Lab as a service
-#sudo apt-get -y install libffi-dev
-#pip3 install -U setuptools cffi pygments testresources
-
 #create directory for Jupyter Notebooks
 mkdir ~/notebooks
 sudo cp ~/repos/meas_rpi/jupyter/jupyter.service /etc/systemd/system/
@@ -79,11 +68,6 @@ sudo systemctl start jupyter.service
 ln -s ~/repos/meas_rpi/jupyter/examples ~/notebooks/examples
 ln -s ~/repos/meas_rpi/jupyter/maintenance ~/notebooks/maintenance
 mkdir ~/notebooks/maintenance/backups
-
-exit
-#############################################################################
-## GPIB currentyl not working!!!
-#############################################################################
 
 #check out linux-gpib
 sudo svn checkout http://svn.code.sf.net/p/linux-gpib/code/trunk /usr/local/src/linux-gpib-code
