@@ -80,7 +80,10 @@ ln -s ~/repos/meas_rpi/jupyter/examples ~/notebooks/examples
 ln -s ~/repos/meas_rpi/jupyter/maintenance ~/notebooks/maintenance
 mkdir ~/notebooks/maintenance/backups
 
-
+exit
+#############################################################################
+## GPIB currentyl not working!!!
+#############################################################################
 
 #check out linux-gpib
 sudo svn checkout http://svn.code.sf.net/p/linux-gpib/code/trunk /usr/local/src/linux-gpib-code
