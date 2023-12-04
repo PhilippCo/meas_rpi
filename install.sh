@@ -133,7 +133,7 @@ sudo systemctl status vxi-bridge.service
 cd ~/repos
 git clone https://github.com/PhilippCo/testgear.git
 cd testgear
-pip3 install -e ./
+~/venv/bin/pip3 install -e ./
 
 
 echo "generate SSH key"
