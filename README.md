@@ -24,7 +24,7 @@ Since some time the default user isn't 'pi' anymore. But a lot of scripts rely o
 log in via ssh or console and just copy and paste these lines one after the other
 
 ```
-sudo apt update && sudo apt -y upgrade && sudo apt-get -y install --reinstall raspberrypi-bootloader raspberrypi-kernel && sudo apt-get -y install raspberrypi-kernel-headers git && echo 'arm_64bit=0' | sudo tee -a /boot/config.txt
+sudo apt update && sudo apt -y upgrade && sudo apt-get -y install --reinstall raspberrypi-bootloader raspberrypi-kernel && sudo apt-get -y install raspberrypi-kernel-headers git && echo 'arm_64bit=0' | sudo tee -a /boot/firmware/config.txt
 ```
 
 ```
