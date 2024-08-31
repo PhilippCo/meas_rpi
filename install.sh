@@ -86,6 +86,9 @@ sudo ./configure
 sudo make
 sudo make install
 
+#install gpib in venv
+sudo ~/venv/bin/python3 -m pip install -e /usr/local/src/linux-gpib-code/linux-gpib-user/language/python/
+
 
 #Install Agilent 82357a
 cd /usr/local/src/linux-gpib-code/
