@@ -115,8 +115,6 @@ echo 'SUBSYSTEM=="usb", MODE="0666", GROUP="gpib"' | sudo tee -a /etc/udev/rules
 sudo ldconfig
 sudo gpib_config
 
-exit
-
 #install VXI11 server
 sudo systemctl enable rpcbind
 sudo systemctl start rpcbind
