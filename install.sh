@@ -7,23 +7,10 @@
 sudo apt-get -y autoremove
 
 #install build tools
+sudo apt -y install linux-kernel-$(uname -r)
 sudo apt -y install subversion
 sudo apt -y install build-essential
-#sudo apt-get -y install texinfo 
-#sudo apt-get -y install texi2html 
-#sudo apt-get -y install libcwidget-dev 
-#sudo apt-get -y install tcl8.6-dev 
-#sudo apt-get -y install tk8.6-dev 
-#sudo apt-get -y install libncurses5-dev 
-#sudo apt-get -y install libx11-dev 
-#sudo apt-get -y install binutils-dev 
 sudo apt -y install bison flex
-#sudo apt-get -y install libusb-1.0-0 
-#sudo apt-get -y install libusb-dev 
-#sudo apt-get -y install libmpfr-dev 
-#sudo apt-get -y install libexpat1-dev 
-#sudo apt-get -y install tofrodos 
-#sudo apt-get -y install autoconf 
 sudo apt -y install automake libtool
 
 #sudo apt-get -y install libpython3-dev
@@ -75,12 +62,12 @@ sudo svn checkout http://svn.code.sf.net/p/linux-gpib/code/trunk /usr/local/src/
 #install Kernel Module
 cd /usr/local/src/linux-gpib-code/linux-gpib-kernel/
 sudo make clean
+sudo sed -i 's/GPIOF_DIR_IN/GPIOD_IN/g' drivers/gpib/gpio/gpib_bitbang.c
 sudo make
 sudo make install
 
 #install User Module
 cd /usr/local/src/linux-gpib-code/linux-gpib-user/
-#sudo make clean
 sudo ./bootstrap
 sudo ./configure
 sudo make
@@ -117,17 +104,6 @@ echo 'SUBSYSTEM=="usb", MODE="0666", GROUP="gpib"' | sudo tee -a /etc/udev/rules
 
 sudo ldconfig
 sudo gpib_config
-
-#install VXI11 server
-sudo systemctl enable rpcbind
-sudo systemctl start rpcbind
-cd ~/repos
-git clone https://github.com/PhilippCo/python-vxi11-server.git
-sudo cp python-vxi11-server/vxi-bridge.service /lib/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable vxi-bridge.service
-sudo systemctl start vxi-bridge.service
-sudo systemctl status vxi-bridge.service
 
 
 #install testgear lib
