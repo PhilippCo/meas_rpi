@@ -19,6 +19,7 @@ sudo apt -y install subversion
 sudo apt -y install build-essential
 sudo apt -y install bison flex
 sudo apt -y install automake libtool
+sudo apt -y install python3-setuptools
 
 #sudo apt-get -y install libpython3-dev
 sudo apt -y install libopenblas-dev liblapack-dev
