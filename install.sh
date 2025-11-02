@@ -4,12 +4,20 @@
 #
 
 
+echo 
+echo 
+echo "#################################################"
+echo "# install neccessary packets..                  #"
+echo "#################################################"
+echo 
+echo 
+
 sudo apt-get -y autoremove
 
 #install build tools
 sudo apt -y install subversion
 sudo apt -y install build-essential
-#sudo apt -y install bison flex  ## still neded without LaTex?
+sudo apt -y install bison flex
 sudo apt -y install automake libtool
 
 #sudo apt-get -y install libpython3-dev
@@ -31,16 +39,30 @@ fi
 sudo apt -y install python3 python3-pip python3-venv nodejs
 sudo apt-get -y install python3-smbus
 
+
+echo 
+echo 
+echo "#################################################"
+echo "# create Python venv..                          #"
+echo "#################################################"
+echo 
+echo 
+
+
 cd ~
 python3 -m venv venv
 ~/venv/bin/python3 -m pip install jupyter
 ~/venv/bin/python3 -m pip install pyvisa pyvisa-py scipy openpyxl pandas xlrd pyserial pyusb
 ~/venv/bin/python3 -m pip install matplotlib ipympl
 
-#install Redis
-sudo apt-get -y install redis-server
-~/venv/bin/python3 -m pip install redis
 
+echo 
+echo 
+echo "#################################################"
+echo "# install Jupyter Lab Service..                 #"
+echo "#################################################"
+echo 
+echo 
 
 #install Jupyter Lab as a service
 #create directory for Jupyter Notebooks
@@ -54,6 +76,15 @@ sudo systemctl start jupyter.service
 ln -s ~/repos/meas_rpi/jupyter/examples ~/notebooks/examples
 ln -s ~/repos/meas_rpi/jupyter/maintenance ~/notebooks/maintenance
 mkdir ~/notebooks/maintenance/backups
+
+
+echo 
+echo 
+echo "#################################################"
+echo "# install Linux GPIB..                          #"
+echo "#################################################"
+echo 
+echo 
 
 #check out linux-gpib
 sudo svn checkout http://svn.code.sf.net/p/linux-gpib/code/trunk /usr/local/src/linux-gpib-code
@@ -75,13 +106,19 @@ sudo make install
 #install gpib in venv
 sudo ~/venv/bin/python3 -m pip install -e /usr/local/src/linux-gpib-code/linux-gpib-user/language/python/
 
+echo 
+echo 
+echo "#################################################"
+echo "# install Agilent 82357A Support..              #"
+echo "#################################################"
+echo 
+echo 
 
 #Install Agilent 82357a
 cd /usr/local/src/linux-gpib-code/
 sudo apt-get -y install fxload
 sudo wget http://linux-gpib.sourceforge.net/firmware/gpib_firmware-2008-08-10.tar.gz
 sudo tar xvzf gpib_firmware-2008-08-10.tar.gz
-#cd /usr/local/src/linux-gpib-code/gpib_firmware-2008-08-10/agilent_82357a/
 
 #backup original gpib.conf
 sudo mv /usr/local/etc/gpib.conf /usr/local/etc/gpib.conf.backup
@@ -104,6 +141,14 @@ echo 'SUBSYSTEM=="usb", MODE="0666", GROUP="gpib"' | sudo tee -a /etc/udev/rules
 sudo ldconfig
 sudo gpib_config
 
+echo 
+echo 
+echo "#################################################"
+echo "# install TestGear Lib..                        #"
+echo "#################################################"
+echo 
+echo 
+
 
 #install testgear lib
 cd ~/repos
@@ -111,10 +156,24 @@ git clone https://github.com/PhilippCo/testgear.git
 cd testgear
 sudo ~/venv/bin/pip3 install -e ./
 
+echo 
+echo 
+echo "#################################################"
+echo "# creat SSH-key..                               #"
+echo "#################################################"
+echo 
+echo 
 
 echo "generate SSH key"
 ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -q -N ""
 
+echo 
+echo 
+echo "#################################################"
+echo "# add Cron Jobs..                               #"
+echo "#################################################"
+echo 
+echo 
 
 #add Cron Jobs
 mkdir ~/notebooks/cron
