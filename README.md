@@ -24,7 +24,7 @@ Since some time the default user isn't 'pi' anymore. But a lot of scripts rely o
 log in via ssh or console and just copy and paste these lines one after the other
 
 ```
-sudo apt install git
+sudo apt install -y git
 ```
 
 ```
