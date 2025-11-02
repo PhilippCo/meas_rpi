@@ -122,8 +122,8 @@ mkdir ~/notebooks/cron/nightly
 mkdir ~/notebooks/cron/hourly
 chmod 777 ~/repos/meas_rpi/scripts/cron_nightly.sh
 chmod 777 ~/repos/meas_rpi/scripts/cron_hourly.sh
-(crontab -l 2>/dev/null; echo "30 2 * * * /home/pi/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
-(crontab -l 2>/dev/null; echo "0 * * * * /home/pi/repos/meas_rpi/scripts/cron_hourly.sh") | crontab -
+(crontab -l 2>/dev/null; echo "30 2 * * * /home/$USER/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
+(crontab -l 2>/dev/null; echo "0 * * * * /home/$USER/repos/meas_rpi/scripts/cron_hourly.sh") | crontab -
 
 echo 
 echo 
