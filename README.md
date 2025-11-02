@@ -21,13 +21,8 @@ Since some time the default user isn't 'pi' anymore. But a lot of scripts rely o
 
 ## Update Raspbian and install everything you need
 
-log in via ssh or console and just copy and paste these lines one after the other
+log in via ssh or console and just copy and paste this line
 
 ```
-sudo apt install -y git
+sudo apt install -y git && mkdir ~/repos && cd ~/repos && git clone https://github.com/PhilippCo/meas_rpi.git && meas_rpi/install.sh
 ```
-
-```
-mkdir ~/repos && cd ~/repos && git clone https://github.com/PhilippCo/meas_rpi.git && meas_rpi/install.sh
-```  
-
