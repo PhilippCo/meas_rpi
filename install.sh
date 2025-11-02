@@ -97,7 +97,7 @@ sudo cp /usr/local/etc/udev/rules.d/* /etc/udev/rules.d/
 
 #create gpib group
 sudo groupadd gpib
-sudo adduser pi gpib
+sudo adduser $(whoami) gpib
 
 #allow access to USB devices
 echo 'SUBSYSTEM=="usb", MODE="0666", GROUP="gpib"' | sudo tee -a /etc/udev/rules.d/99-com.rules
@@ -114,15 +114,15 @@ sudo ~/venv/bin/pip3 install -e ./
 
 
 echo "generate SSH key"
-ssh-keygen -b 4096 -t rsa -f /home/pi/.ssh/id_rsa -q -N ""
+ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -q -N ""
 
 
 #add Cron Jobs
 mkdir ~/notebooks/cron
 mkdir ~/notebooks/cron/nightly
 mkdir ~/notebooks/cron/hourly
-chmod 777 /home/pi/repos/meas_rpi/scripts/cron_nightly.sh
-chmod 777 /home/pi/repos/meas_rpi/scripts/cron_hourly.sh
+chmod 777 ~/repos/meas_rpi/scripts/cron_nightly.sh
+chmod 777 ~/repos/meas_rpi/scripts/cron_hourly.sh
 (crontab -l 2>/dev/null; echo "30 2 * * * /home/pi/repos/meas_rpi/scripts/cron_nightly.sh") | crontab -
 (crontab -l 2>/dev/null; echo "0 * * * * /home/pi/repos/meas_rpi/scripts/cron_hourly.sh") | crontab -
 
