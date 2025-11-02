@@ -9,7 +9,7 @@ sudo apt-get -y autoremove
 #install build tools
 sudo apt -y install subversion
 sudo apt -y install build-essential
-sudo apt -y install bison flex
+#sudo apt -y install bison flex  ## still neded without LaTex?
 sudo apt -y install automake libtool
 
 #sudo apt-get -y install libpython3-dev
