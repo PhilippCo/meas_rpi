@@ -7,7 +7,6 @@
 sudo apt-get -y autoremove
 
 #install build tools
-sudo apt -y install linux-kernel-$(uname -r)
 sudo apt -y install subversion
 sudo apt -y install build-essential
 sudo apt -y install bison flex
